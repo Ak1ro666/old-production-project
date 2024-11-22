@@ -1,5 +1,8 @@
 {
     "язык": "English",
     "о нас": "about us",
-    "главная": "main"
+    "главная": "main",
+    "Страница не найдена": "Not found page",
+    "Произошла непредвиденная ошибка": "An unexpected error has occurred",
+    "Перезагрузить страницу": "Reload page"
 }

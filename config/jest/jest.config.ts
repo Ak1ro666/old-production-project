@@ -20,7 +20,7 @@ export default {
     moduleDirectories: ['node_modules'],
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
     rootDir: '../../',
-    // roots: ['<rootDir>'],
+    roots: ['<rootDir>'],
     testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
     // testPathIgnorePatterns: ['\\\\node_modules\\\\'],
 

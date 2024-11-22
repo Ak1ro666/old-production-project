@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './Sidebar.module.scss';
 import { Button, ThemeButton } from '@/shared/ui/Button';
-import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
+import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import { LanguageSwitcher } from '@/widgets/LanguageSwitcher';
 
 export const Sidebar = () => {
