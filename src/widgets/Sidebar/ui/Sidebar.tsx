@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './Sidebar.module.scss';
@@ -15,6 +14,7 @@ export const Sidebar = () => {
 
     return (
         <aside
+            data-testid="sidebar"
             className={classNames(
                 styles.Sidebar,
                 {
@@ -23,7 +23,11 @@ export const Sidebar = () => {
                 [],
             )}
         >
-            <Button theme={ThemeButton.PRIMARY} onClick={onToggleSidebar}>
+            <Button
+                data-testid="sidebar-toggle"
+                theme={ThemeButton.PRIMARY}
+                onClick={onToggleSidebar}
+            >
                 toggle
             </Button>
             <div className={styles.switchers}>

@@ -34,11 +34,22 @@ module.exports = {
         'function-paren-newline': 'off',
         'import/order': 'off',
         'no-underscore-dangle': 'off',
-        'i18next/no-literal-string': ['error', { markupOnly: true }],
+        'i18next/no-literal-string': [
+            'error',
+            { markupOnly: true, ignoreAttribute: ['data-testid'] },
+        ],
         'max-len': ['error', { ignoreComments: true, code: 100 }],
         'arrow-body-style': 'off',
         'react/jsx-wrap-multilines': 'off',
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+    ],
     globals: {
         __IS_DEV__: true,
     },
