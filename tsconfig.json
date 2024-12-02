@@ -4,6 +4,7 @@
         "sourceMap": true,
         "noImplicitAny": true,
         "forceConsistentCasingInFileNames": true,
+        "verbatimModuleSyntax": true,
         "module": "ESNext",
         "target": "es5",
         "jsx": "react-jsx",
