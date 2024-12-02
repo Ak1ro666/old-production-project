@@ -4,9 +4,11 @@ import styles from './Sidebar.module.scss';
 import { Button, ThemeButton } from '@/shared/ui/Button';
 import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import { LanguageSwitcher } from '@/widgets/LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 export const Sidebar = () => {
     const [collapsed, setCollapsed] = useState<boolean>(false);
+    const { t } = useTranslation();
 
     const onToggleSidebar = useCallback(() => {
         setCollapsed((prev) => !prev);
@@ -28,7 +30,7 @@ export const Sidebar = () => {
                 theme={ThemeButton.PRIMARY}
                 onClick={onToggleSidebar}
             >
-                toggle
+                {t('Переключить сайдбар')}
             </Button>
             <div className={styles.switchers}>
                 <ThemeSwitcher />
