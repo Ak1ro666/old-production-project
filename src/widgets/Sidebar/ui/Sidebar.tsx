@@ -30,7 +30,7 @@ export const Sidebar = () => {
                 theme={ThemeButton.PRIMARY}
                 onClick={onToggleSidebar}
             >
-                {t('Переключить сайдбар')}
+                {t('Переключить')}
             </Button>
             <div className={styles.switchers}>
                 <ThemeSwitcher />
