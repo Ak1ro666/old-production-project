@@ -4,12 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-        'plugin:i18next/recommended',
-        'plugin:storybook/recommended',
-    ],
+    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -28,6 +23,7 @@ module.exports = {
         'react/jsx-indent': ['error', 4],
         'react/jsx-indent-props': ['error', 4],
         'linebreak-style': 'off',
+        'no-param-reassign': 'warn',
         'react/react-in-jsx-scope': 'off',
         'react/jsx-filename-extension': 'off',
         'import/no-extraneous-dependencies': 'off',
