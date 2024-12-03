@@ -33,6 +33,7 @@ module.exports = {
         'no-unused-vars': 'off',
         'object-curly-newline': 'off',
         'function-paren-newline': 'off',
+        'react/require-default-props': 'off',
         'import/order': 'off',
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': [

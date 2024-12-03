@@ -1,2 +1,2 @@
 export { Button } from './ui/Button';
-export { ThemeButton } from './ui/Button.props';
+export { ButtonTheme, ButtonSize } from './ui/Button.props';

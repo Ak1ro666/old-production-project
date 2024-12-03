@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import styles from './PageError.module.scss';
-import { Button, ThemeButton } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 
 export function PageError() {
     const { t } = useTranslation();
@@ -13,7 +13,7 @@ export function PageError() {
     return (
         <div className={styles.page}>
             <h1>{t('Произошла непредвиденная ошибка')}</h1>
-            <Button theme={ThemeButton.PRIMARY} onClick={reloadPage}>
+            <Button theme={ButtonTheme.PRIMARY} onClick={reloadPage}>
                 {t('Перезагрузить страницу')}
             </Button>
         </div>
