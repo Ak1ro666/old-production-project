@@ -7,7 +7,7 @@ export function Navbar() {
 
     return (
         <nav className={styles.Navbar}>
-            <div className={styles.links}></div>
+            <div className={styles.links} />
         </nav>
     );
 }
