@@ -17,7 +17,7 @@ export const Sidebar = () => {
 
     const onToggleSidebar = useCallback(() => {
         setCollapsed((prev) => !prev);
-    }, [collapsed]);
+    }, []);
 
     return (
         <aside
