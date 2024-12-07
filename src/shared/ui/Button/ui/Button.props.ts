@@ -2,6 +2,7 @@ import { ButtonHTMLAttributes } from 'react';
 
 export enum ButtonTheme {
     CLEAR = 'clear',
+    CLEAR_INVERTED = 'clear_inverted',
     OUTLINE = 'outline',
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
