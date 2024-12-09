@@ -1,9 +1,11 @@
 {
-    "язык": "English",
-    "Короткий язык": "En",
-    "о нас": "about us",
-    "главная": "main",
-    "Страница не найдена": "Not found page",
-    "Произошла непредвиденная ошибка": "An unexpected error has occurred",
-    "Перезагрузить страницу": "Reload page"
+  "язык": "English",
+  "Короткий язык": "En",
+  "о нас": "about us",
+  "главная": "main",
+  "Страница не найдена": "Not found page",
+  "Произошла непредвиденная ошибка": "An unexpected error has occurred",
+  "Перезагрузить страницу": "Reload page",
+  "increment": "increment",
+  "decrement": "decrement"
 }
