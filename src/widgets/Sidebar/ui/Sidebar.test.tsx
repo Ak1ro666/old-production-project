@@ -4,11 +4,11 @@ import { renderComponent } from '@/shared/lib/tests/renderComponent/renderCompon
 
 describe('Sidebar', () => {
     test('test render', () => {
-        renderComponent(<Sidebar />);
+        renderComponent({ component: <Sidebar /> });
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     });
     test('test toggle', () => {
-        renderComponent(<Sidebar />);
+        renderComponent({ component: <Sidebar /> });
         const toggleBtn = screen.getByTestId('sidebar-toggle');
         expect(screen.getByTestId('sidebar-toggle')).toBeInTheDocument();
         fireEvent.click(toggleBtn);
