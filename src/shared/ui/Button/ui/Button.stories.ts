@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 import { Button } from './Button';
-import { ButtonSize, ButtonTheme } from './Button.props';
+import { ButtonSize, ButtonTheme } from './Button.types';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
 

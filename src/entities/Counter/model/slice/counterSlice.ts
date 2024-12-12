@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { CounterSchema } from '../types/CounterSchema';
+import { CounterSchema } from '../types/CounterSchema';
 
 const initialState: CounterSchema = {
     value: 0,

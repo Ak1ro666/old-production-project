@@ -2,15 +2,19 @@ import { useTranslation } from 'react-i18next';
 
 import styles from './Navbar.module.scss';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { useCallback, useState } from 'react';
-import { Modal } from '@/shared/ui/Modal';
+import { useCallback, useState, lazy } from 'react';
+import { LoginModal } from '@/features/AuthByUsername';
 
 export function Navbar() {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
 
+    const handleCloseModal = useCallback(() => {
+        setIsAuthModal((prev) => false);
+    }, []);
+
     const handleOpenModal = useCallback(() => {
-        setIsAuthModal((prev) => !prev);
+        setIsAuthModal((prev) => true);
     }, []);
 
     return (
@@ -19,9 +23,7 @@ export function Navbar() {
             <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={handleOpenModal}>
                 {t('Авторизация')}
             </Button>
-            <Modal isOpen={isAuthModal} onClose={handleOpenModal}>
-                {t('Авторизоваться')}
-            </Modal>
+            <LoginModal isOpen={isAuthModal} onClose={handleCloseModal} />
         </nav>
     );
 }

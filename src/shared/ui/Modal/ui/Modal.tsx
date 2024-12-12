@@ -1,53 +1,28 @@
-import { MouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { MouseEvent, ReactNode } from 'react';
 import styles from './Modal.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Portal } from '../../Portal';
 
-const ANIMATION_DELAY = 300;
-
 export function Modal({
     children,
     isOpen,
-    onClose,
+    isClosing,
+    handleClose,
+    onContentClick,
+    lazy,
+    isMounted,
 }: {
     children: ReactNode;
     isOpen?: boolean;
-    onClose?: () => void;
+    isClosing: boolean;
+    handleClose: () => void;
+    onContentClick: (e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => void;
+    lazy?: boolean;
+    isMounted?: boolean;
 }) {
-    const [isClosing, setIsClosing] = useState<boolean>(false);
-    const timeRef = useRef<ReturnType<typeof setTimeout>>(null);
-
-    const handleClose = useCallback(() => {
-        if (onClose) {
-            setIsClosing(true);
-            timeRef.current = setTimeout(() => {
-                onClose();
-                setIsClosing(false);
-            }, ANIMATION_DELAY);
-        }
-    }, [onClose]);
-
-    const onKeyDown = useCallback(
-        (e: KeyboardEvent) => {
-            if (e.key === 'Escape') {
-                handleClose();
-            }
-        },
-        [handleClose],
-    );
-
-    const onContentClick = (e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => {
-        e.stopPropagation();
-    };
-
-    useEffect(() => {
-        window.addEventListener('keydown', onKeyDown);
-
-        return () => {
-            window.removeEventListener('keydown', onKeyDown);
-            clearTimeout(timeRef.current);
-        };
-    }, [onKeyDown]);
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>

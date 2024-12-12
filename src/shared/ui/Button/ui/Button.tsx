@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './Button.module.scss';
-import { ButtonProps, ButtonTheme } from './Button.props';
+import { ButtonProps, ButtonTheme } from './Button.types';
 
 export function Button(props: ButtonProps) {
     const {
