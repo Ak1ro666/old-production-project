@@ -12,10 +12,10 @@ export function LoginForm() {
     return (
         <form className={styles.loginForm}>
             <Input autoFocus placeholder={t('Введите username')} className={styles.input} />
-            <Input placeholder={t('Введите пароль ')} className={styles.input} />
+            <Input placeholder={t('Введите пароль')} className={styles.input} />
             <Button type="button" className={styles.loginBtn}>
                 {t('Войти')}
             </Button>
-        </form>
+        </form> 
     );
 }

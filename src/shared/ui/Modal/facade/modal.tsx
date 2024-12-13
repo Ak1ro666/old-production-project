@@ -1,4 +1,4 @@
-import { ReactNode, lazy } from 'react';
+import { ReactNode } from 'react';
 import { ModalView } from '../ui';
 import { useModalHandler } from '../view-modal/use-modal-handler';
 
