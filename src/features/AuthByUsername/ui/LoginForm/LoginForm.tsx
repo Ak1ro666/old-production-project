@@ -16,6 +16,6 @@ export function LoginForm() {
             <Button type="button" className={styles.loginBtn}>
                 {t('Войти')}
             </Button>
-        </form> 
+        </form>
     );
 }
