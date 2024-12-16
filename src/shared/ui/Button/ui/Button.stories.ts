@@ -34,6 +34,14 @@ export const ClearInverted: Story = {
     },
 };
 
+export const PrimaryDisabled: Story = {
+    args: {
+        children: 'PrimaryDisabled',
+        theme: ButtonTheme.PRIMARY,
+        disabled: true,
+    },
+};
+
 export const Outline: Story = {
     args: {
         children: 'Outline',

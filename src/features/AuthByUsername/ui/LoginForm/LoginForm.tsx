@@ -1,19 +1,20 @@
 import { useTranslation } from 'react-i18next';
 
 import styles from './Login.module.scss';
-import { Button } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPassword, getUsername } from '../../model/selectors';
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { loginActions } from '../../model/slice/loginSlice';
+import { getLoginState } from '../../model/selectors';
+import { loginByUsername } from '../../model/services/loginByUsername';
+import { Text, TextTheme } from '@/shared/ui/Text';
 
-export function LoginForm() {
+export const LoginForm = memo(() => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
 
-    const username = useSelector(getUsername);
-    const password = useSelector(getPassword);
+    const { username, password, isLoading, error } = useSelector(getLoginState);
 
     const onChangeUsername = useCallback(
         (value: string) => {
@@ -29,8 +30,14 @@ export function LoginForm() {
         [dispatch],
     );
 
+    const onLoginClick = useCallback(() => {
+        dispatch(loginByUsername({ username, password }));
+    }, [dispatch, password, username]);
+
     return (
         <form className={styles.loginForm}>
+            <Text title={t('Форма авторизации')} />
+            {error && <Text text={t(error)} theme={TextTheme.ERROR} />}
             <Input
                 autoFocus
                 placeholder={t('Введите username')}
@@ -44,9 +51,15 @@ export function LoginForm() {
                 onChange={onChangePassword}
                 value={password}
             />
-            <Button type="button" className={styles.loginBtn}>
+            <Button
+                onClick={onLoginClick}
+                theme={ButtonTheme.PRIMARY}
+                type="button"
+                className={styles.loginBtn}
+                disabled={isLoading}
+            >
                 {t('Войти')}
             </Button>
         </form>
     );
-}
+});

@@ -1,16 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit';
+/* eslint-disable operator-linebreak */
 import { ReactRenderer } from '@storybook/react/*';
-import { Provider } from 'react-redux';
 import { PartialStoryFn } from 'storybook/internal/types';
+import { DeepPartial } from '@reduxjs/toolkit';
+import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 
-export function StoreDecorator(Story: PartialStoryFn<ReactRenderer>) {
-    const store = configureStore({
-        reducer: {},
-    });
-
-    return (
-        <Provider store={store}>
-            <Story />
-        </Provider>
-    );
-}
+export const StoreDecorator =
+    (state: DeepPartial<StateSchema>) => (Story: PartialStoryFn<ReactRenderer>) => {
+        return (
+            <StoreProvider initialState={state as StateSchema}>
+                <Story />
+            </StoreProvider>
+        );
+    };

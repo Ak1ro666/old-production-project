@@ -11,6 +11,7 @@ export function Button(props: ButtonProps) {
         className,
         size,
         type = 'button',
+        disabled,
         ...otherProps
     } = props;
 
@@ -18,10 +19,12 @@ export function Button(props: ButtonProps) {
         <button
             onClick={onClick}
             type="button"
+            disabled={disabled}
             className={classNames(
                 styles.Button,
                 {
                     [styles.square]: square,
+                    [styles.disabled]: disabled,
                 },
                 [className, styles[theme], styles[size]],
             )}

@@ -1,11 +1,16 @@
 {
-  "язык": "English",
-  "Короткий язык": "En",
-  "о нас": "about us",
-  "главная": "main",
-  "Страница не найдена": "Not found page",
-  "Произошла непредвиденная ошибка": "An unexpected error has occurred",
-  "Перезагрузить страницу": "Reload page",
-  "increment": "increment",
-  "decrement": "decrement"
+    "язык": "English",
+    "Короткий язык": "En",
+    "о нас": "about us",
+    "главная": "main",
+    "Страница не найдена": "Not found page",
+    "Произошла непредвиденная ошибка": "An unexpected error has occurred",
+    "Перезагрузить страницу": "Reload page",
+    "increment": "increment",
+    "decrement": "decrement",
+    "Вы ввели неверный логин или пароль": "You entered an incorrect login or password",
+    "Форма авторизации": "Authorization form",
+    "Выход": "Logout",
+    "Авторизация": "Authorization",
+    "Войти": "Log in"
 }

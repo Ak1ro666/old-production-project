@@ -9,7 +9,7 @@ export function createReduxStore(initialState?: StateSchema) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
         user: userReducer,
-        login: loginReducer,
+        loginForm: loginReducer,
     };
 
     return configureStore<StateSchema>({

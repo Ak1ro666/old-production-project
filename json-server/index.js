@@ -1,13 +1,13 @@
-const fs = require('fs');
-const jsonServer = require('json-server');
-const path = require('path');
+import { readFileSync } from 'fs';
+import { create, router as _router, defaults, bodyParser } from 'json-server';
+import { resolve } from 'path';
 
-const server = jsonServer.create();
+const server = create();
 
-const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
+const router = _router(resolve(__dirname, 'db.json'));
 
-server.use(jsonServer.defaults({}));
-server.use(jsonServer.bodyParser);
+server.use(defaults({}));
+server.use(bodyParser);
 
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
@@ -21,7 +21,7 @@ server.use(async (req, res, next) => {
 server.post('/login', (req, res) => {
     try {
         const { username, password } = req.body;
-        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+        const db = JSON.parse(readFileSync(resolve(__dirname, 'db.json'), 'UTF-8'));
         const { users = [] } = db;
 
         const userFromBd = users.find(
