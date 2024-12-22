@@ -43,9 +43,9 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': [
             'error',
-            { markupOnly: true, ignoreAttribute: ['data-testid', 'to'] },
+            { markupOnly: true, ignoreAttribute: ['data-testid', 'to', 'nameReducer'] },
         ],
-        'max-len': ['error', { ignoreComments: true, code: 100 }],
+        'max-len': ['error', { ignoreComments: true, code: 120 }],
         'arrow-body-style': 'off',
         'react/jsx-wrap-multilines': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',

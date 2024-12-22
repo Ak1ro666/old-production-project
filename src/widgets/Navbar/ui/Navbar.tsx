@@ -42,7 +42,7 @@ export function Navbar() {
             <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={handleOpenModal}>
                 {t('Авторизация')}
             </Button>
-            <LoginModal isOpen={isAuthModal} onClose={handleCloseModal} />
+            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={handleCloseModal} />}
         </nav>
     );
 }
