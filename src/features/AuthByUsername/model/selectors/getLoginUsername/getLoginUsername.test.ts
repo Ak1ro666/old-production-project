@@ -1,18 +1,18 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { getLoginError } from './getLoginError';
+import { getLoginUsername } from './getLoginUsername';
 import { DeepPartial } from '@reduxjs/toolkit';
 
-describe('getLoginError', () => {
-    test('should return error', () => {
+describe('getLoginUsername', () => {
+    test('should return username', () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: {
-                error: 'error',
+                username: '123',
             },
         };
-        expect(getLoginError(state as StateSchema)).toBe('error');
+        expect(getLoginUsername(state as StateSchema)).toEqual('123');
     });
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getLoginError(state as StateSchema)).toBe('');
+        expect(getLoginUsername(state as StateSchema)).toBe('');
     });
 });
