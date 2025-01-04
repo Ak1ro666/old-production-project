@@ -8,41 +8,41 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from '@/entities/User';
 
 export const Navbar = memo(() => {
-    const { t } = useTranslation();
-    const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
-    const authData = useSelector(getUserAuthData);
-    const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
+  const authData = useSelector(getUserAuthData);
+  const dispatch = useDispatch();
 
-    const handleCloseModal = useCallback(() => {
-        setIsAuthModal(false);
-    }, []);
+  const handleCloseModal = useCallback(() => {
+    setIsAuthModal(false);
+  }, []);
 
-    const handleOpenModal = useCallback(() => {
-        setIsAuthModal(true);
-    }, []);
+  const handleOpenModal = useCallback(() => {
+    setIsAuthModal(true);
+  }, []);
 
-    const onLogout = useCallback(() => {
-        dispatch(userActions.logout());
-    }, [dispatch]);
+  const onLogout = useCallback(() => {
+    dispatch(userActions.logout());
+  }, [dispatch]);
 
-    if (authData) {
-        return (
-            <nav className={styles.Navbar}>
-                <div className={styles.links} />
-                <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogout}>
-                    {t('Выход')}
-                </Button>
-            </nav>
-        );
-    }
-
+  if (authData) {
     return (
-        <nav className={styles.Navbar}>
-            <div className={styles.links} />
-            <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={handleOpenModal}>
-                {t('Авторизация')}
-            </Button>
-            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={handleCloseModal} />}
-        </nav>
+      <nav className={styles.Navbar}>
+        <div className={styles.links} />
+        <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogout}>
+          {t('Выход')}
+        </Button>
+      </nav>
     );
+  }
+
+  return (
+    <nav className={styles.Navbar}>
+      <div className={styles.links} />
+      <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={handleOpenModal}>
+        {t('Авторизация')}
+      </Button>
+      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={handleCloseModal} />}
+    </nav>
+  );
 });

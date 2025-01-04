@@ -3,11 +3,11 @@ import styles from './NotFounPage.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 export const NotFoundPage = () => {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
-    return (
-        <div className={classNames(styles.NotFoundPage)}>
-            <h1>{t('Страница не найдена')}</h1>
-        </div>
-    );
+  return (
+    <div className={classNames(styles.NotFoundPage)}>
+      <h1>{t('Страница не найдена')}</h1>
+    </div>
+  );
 };

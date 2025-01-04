@@ -5,15 +5,15 @@ import { StateSchema } from '../model/StateSchema';
 import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 
 export function StoreProvider({
-    children,
-    initialState,
-    asyncReducers,
+  children,
+  initialState,
+  asyncReducers,
 }: {
-    children: ReactNode;
-    initialState?: StateSchema;
-    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
+  children: ReactNode;
+  initialState?: StateSchema;
+  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
 }) {
-    const store = createReduxStore(initialState, asyncReducers as ReducersMapObject<StateSchema>);
+  const store = createReduxStore(initialState, asyncReducers as ReducersMapObject<StateSchema>);
 
-    return <Provider store={store}>{children}</Provider>;
+  return <Provider store={store}>{children}</Provider>;
 }

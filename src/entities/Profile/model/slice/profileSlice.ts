@@ -2,20 +2,20 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProfileSchema } from '../types/profile';
 
 const initialState: ProfileSchema = {
-    data: undefined,
-    isLoading: false,
-    error: undefined,
-    readonly: true,
+  data: undefined,
+  isLoading: false,
+  error: undefined,
+  readonly: true,
 };
 
 export const profileSlice = createSlice({
-    name: 'profile',
-    initialState,
-    reducers: {
-        setReadonly: (state, action: PayloadAction<boolean>) => {
-            state.readonly = action.payload;
-        },
+  name: 'profile',
+  initialState,
+  reducers: {
+    setReadonly: (state, action: PayloadAction<boolean>) => {
+      state.readonly = action.payload;
     },
+  },
 });
 
 export const { actions: profileActions } = profileSlice;

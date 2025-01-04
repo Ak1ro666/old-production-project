@@ -1,29 +1,29 @@
 .item {
-    color: var(--inverted-primary-color);
-    width: fit-content;
+  color: var(--inverted-primary-color);
+  width: fit-content;
 }
 
 .link {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    & span {
-        opacity: 1;
-        margin-left: 10px;
-    }
+  & span {
+    opacity: 1;
+    margin-left: 10px;
+  }
 }
 
 .icon {
-    fill: var(--inverted-primary-color);
+  fill: var(--inverted-primary-color);
 }
 
 .item.collapsed {
-    row-gap: 0;
+  row-gap: 0;
 
-    & > .link > span {
-        transition: 0.2s all ease-in-out;
-        opacity: 0;
-        width: 0;
-        margin: 0;
-    }
+  & > .link > span {
+    transition: 0.2s all ease-in-out;
+    opacity: 0;
+    width: 0;
+    margin: 0;
+  }
 }

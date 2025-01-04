@@ -3,30 +3,30 @@ import { ModalView } from '../ui';
 import { useModalHandler } from '../view-modal/use-modal-handler';
 
 export function Modal({
-    children,
-    isOpen,
-    onClose,
-    lazy,
+  children,
+  isOpen,
+  onClose,
+  lazy,
 }: {
-    children: ReactNode;
-    isOpen?: boolean;
-    onClose?: () => void;
-    lazy?: boolean;
+  children: ReactNode;
+  isOpen?: boolean;
+  onClose?: () => void;
+  lazy?: boolean;
 }) {
-    const modalHandler = useModalHandler({
-        onClose,
-        isOpen,
-    });
+  const modalHandler = useModalHandler({
+    onClose,
+    isOpen,
+  });
 
-    return (
-        <ModalView
-            isOpen={isOpen}
-            isClosing={modalHandler.isClosing}
-            handleClose={modalHandler.handleClose}
-            lazy={lazy}
-            isMounted={modalHandler.isMounted}
-        >
-            {children}
-        </ModalView>
-    );
+  return (
+    <ModalView
+      isOpen={isOpen}
+      isClosing={modalHandler.isClosing}
+      handleClose={modalHandler.handleClose}
+      lazy={lazy}
+      isMounted={modalHandler.isMounted}
+    >
+      {children}
+    </ModalView>
+  );
 }

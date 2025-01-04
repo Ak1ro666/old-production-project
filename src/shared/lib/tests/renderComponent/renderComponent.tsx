@@ -7,27 +7,25 @@ import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import { DeepPartial } from '@reduxjs/toolkit';
 
 type RenderComponentProps = {
-    route?: string;
+  route?: string;
 };
 
 export function renderComponent({
-    component,
-    initialState,
-    options = {},
+  component,
+  initialState,
+  options = {},
 }: {
-    component: ReactNode;
-    initialState?: DeepPartial<StateSchema>;
-    options?: RenderComponentProps;
+  component: ReactNode;
+  initialState?: DeepPartial<StateSchema>;
+  options?: RenderComponentProps;
 }) {
-    const { route = '/' } = options;
+  const { route = '/' } = options;
 
-    return render(
-        <MemoryRouter initialEntries={[route]}>
-            <I18nextProvider i18n={i18nForTests}>
-                <StoreProvider initialState={initialState as StateSchema}>
-                    {component}
-                </StoreProvider>
-            </I18nextProvider>
-        </MemoryRouter>,
-    );
+  return render(
+    <MemoryRouter initialEntries={[route]}>
+      <I18nextProvider i18n={i18nForTests}>
+        <StoreProvider initialState={initialState as StateSchema}>{component}</StoreProvider>
+      </I18nextProvider>
+    </MemoryRouter>,
+  );
 }

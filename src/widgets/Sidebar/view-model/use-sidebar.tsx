@@ -3,19 +3,19 @@ import { sidebarItemsList } from '../model/items';
 import { SidebarItem } from '../ui/SidebarItem/SidebarItem';
 
 export function useSidebar() {
-    const [collapsed, setCollapsed] = useState<boolean>(false);
+  const [collapsed, setCollapsed] = useState<boolean>(false);
 
-    const onToggleSidebar = useCallback(() => {
-        setCollapsed((prev) => !prev);
-    }, []);
+  const onToggleSidebar = useCallback(() => {
+    setCollapsed((prev) => !prev);
+  }, []);
 
-    const itemsList = sidebarItemsList.map((item) => (
-        <SidebarItem item={item} key={item.text} collapsed={collapsed} />
-    ));
+  const itemsList = sidebarItemsList.map((item) => (
+    <SidebarItem item={item} key={item.text} collapsed={collapsed} />
+  ));
 
-    return {
-        collapsed,
-        onToggleSidebar,
-        itemsList,
-    };
+  return {
+    collapsed,
+    onToggleSidebar,
+    itemsList,
+  };
 }

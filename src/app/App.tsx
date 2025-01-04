@@ -8,21 +8,21 @@ import { useDispatch } from 'react-redux';
 import { userActions } from '@/entities/User';
 
 export const App = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(userActions.initAuthData());
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
-    return (
-        <div className="app">
-            <Suspense fallback={<Loader />}>
-                <Navbar />
-                <main className="content-page">
-                    <Sidebar />
-                    <AppRouter />
-                </main>
-            </Suspense>
-        </div>
-    );
+  return (
+    <div className="app">
+      <Suspense fallback={<Loader />}>
+        <Navbar />
+        <main className="content-page">
+          <Sidebar />
+          <AppRouter />
+        </main>
+      </Suspense>
+    </div>
+  );
 };

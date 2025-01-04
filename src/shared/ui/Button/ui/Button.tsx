@@ -4,34 +4,34 @@ import { ButtonProps, ButtonTheme } from './Button.types';
 import { memo } from 'react';
 
 export const Button = memo((props: ButtonProps) => {
-    const {
-        children,
-        theme = ButtonTheme.PRIMARY,
-        onClick,
-        square,
-        className,
-        size,
-        type = 'button',
-        disabled,
-        ...otherProps
-    } = props;
+  const {
+    children,
+    theme = ButtonTheme.PRIMARY,
+    onClick,
+    square,
+    className,
+    size,
+    type = 'button',
+    disabled,
+    ...otherProps
+  } = props;
 
-    return (
-        <button
-            onClick={onClick}
-            type="button"
-            disabled={disabled}
-            className={classNames(
-                styles.Button,
-                {
-                    [styles.square]: square,
-                    [styles.disabled]: disabled,
-                },
-                [className, styles[theme], styles[size]],
-            )}
-            {...otherProps}
-        >
-            {children}
-        </button>
-    );
+  return (
+    <button
+      onClick={onClick}
+      type="button"
+      disabled={disabled}
+      className={classNames(
+        styles.Button,
+        {
+          [styles.square]: square,
+          [styles.disabled]: disabled,
+        },
+        [className, styles[theme], styles[size]],
+      )}
+      {...otherProps}
+    >
+      {children}
+    </button>
+  );
 });

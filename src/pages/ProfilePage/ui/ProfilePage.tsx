@@ -1,22 +1,22 @@
 import { profileReducer } from '@/entities/Profile';
 import {
-    DynamicModuleLoader,
-    ReducersList,
+  DynamicModuleLoader,
+  ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useTranslation } from 'react-i18next';
 
 const reducers: ReducersList = {
-    profile: profileReducer,
+  profile: profileReducer,
 };
 
 export function ProfilePage() {
-    const { t } = useTranslation('profile');
+  const { t } = useTranslation('profile');
 
-    return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div>
-                <h1>{t('Профиль')}</h1>
-            </div>
-        </DynamicModuleLoader>
-    );
+  return (
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      <div>
+        <h1>{t('Профиль')}</h1>
+      </div>
+    </DynamicModuleLoader>
+  );
 }

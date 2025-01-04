@@ -1,10 +1,10 @@
 export enum TextTheme {
-    PRIMARY = 'primary',
-    ERROR = 'error',
+  PRIMARY = 'primary',
+  ERROR = 'error',
 }
 
 export interface TextProps {
-    theme?: TextTheme;
-    text?: string;
-    title?: string;
+  theme?: TextTheme;
+  text?: string;
+  title?: string;
 }

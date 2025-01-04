@@ -1,45 +1,45 @@
 .Sidebar {
-    width: var(--sidebar-width);
-    height: calc(100vh - var(--navbar-height));
-    position: relative;
-    background: var(--inverted-bg-color);
-    transition: width 0.3s;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--navbar-height));
+  position: relative;
+  background: var(--inverted-bg-color);
+  transition: width 0.3s;
 }
 
 .items {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-    margin-top: 20px;
-    margin-left: 20px;
-    font: var(--font-l);
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
+  font: var(--font-l);
 }
 
 .switchers {
-    position: absolute;
-    bottom: 20px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: 20px;
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
 }
 
 .collapsed {
-    width: var(--sidebar-with-collapsed);
+  width: var(--sidebar-with-collapsed);
 
-    & .switchers {
-        flex-direction: column;
-        align-items: center;
-    }
+  & .switchers {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .items {
-        margin-left: 0;
-        align-items: center;
-    }
+  .items {
+    margin-left: 0;
+    align-items: center;
+  }
 }
 
 .collapsedBtn {
-    position: absolute;
-    bottom: 32px;
-    right: -32px;
+  position: absolute;
+  bottom: 32px;
+  right: -32px;
 }

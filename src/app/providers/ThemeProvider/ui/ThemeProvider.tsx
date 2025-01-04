@@ -5,23 +5,23 @@ import { LOCAL_STORAGE_THEME_KEY } from '@/shared/constants/localstorage';
 const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
 export function ThemeProvider({
-    children,
-    initialTheme,
+  children,
+  initialTheme,
 }: {
-    children: ReactNode;
-    initialTheme?: Theme;
+  children: ReactNode;
+  initialTheme?: Theme;
 }) {
-    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
-    const defaultProps = useMemo(
-        () => ({
-            theme,
-            setTheme,
-        }),
-        [theme],
-    );
+  const defaultProps = useMemo(
+    () => ({
+      theme,
+      setTheme,
+    }),
+    [theme],
+  );
 
-    document.body.className = theme;
+  document.body.className = theme;
 
-    return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>;
+  return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>;
 }
