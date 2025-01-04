@@ -23,7 +23,6 @@ export function Modal({
             isOpen={isOpen}
             isClosing={modalHandler.isClosing}
             handleClose={modalHandler.handleClose}
-            onContentClick={modalHandler.onContentClick}
             lazy={lazy}
             isMounted={modalHandler.isMounted}
         >

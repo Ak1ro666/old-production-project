@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import styles from './Loader.module.scss';
 
-export const Loader = () => {
+export const Loader = memo(() => {
     return (
         <div className={styles.container}>
             <div className={styles['lds-spinner']}>
@@ -19,4 +20,4 @@ export const Loader = () => {
             </div>
         </div>
     );
-};
+});

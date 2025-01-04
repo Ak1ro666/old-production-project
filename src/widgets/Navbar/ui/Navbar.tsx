@@ -2,12 +2,12 @@ import { useTranslation } from 'react-i18next';
 
 import styles from './Navbar.module.scss';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { useCallback, useState, lazy } from 'react';
+import { useCallback, useState, lazy, memo } from 'react';
 import { LoginModal } from '@/features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from '@/entities/User';
 
-export function Navbar() {
+export const Navbar = memo(() => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
     const authData = useSelector(getUserAuthData);
@@ -45,4 +45,4 @@ export function Navbar() {
             {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={handleCloseModal} />}
         </nav>
     );
-}
+});

@@ -40,6 +40,5 @@ export function useInputHandlers(onChange: (value: string) => void, autoFocus: b
         isFocused,
         caretPosition,
         inputRef,
-        setIsFocused,
     };
 }

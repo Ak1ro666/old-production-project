@@ -1,8 +1,9 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './Button.module.scss';
 import { ButtonProps, ButtonTheme } from './Button.types';
+import { memo } from 'react';
 
-export function Button(props: ButtonProps) {
+export const Button = memo((props: ButtonProps) => {
     const {
         children,
         theme = ButtonTheme.PRIMARY,
@@ -33,4 +34,4 @@ export function Button(props: ButtonProps) {
             {children}
         </button>
     );
-}
+});

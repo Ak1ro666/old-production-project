@@ -1,4 +1,4 @@
-import { MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const ANIMATION_DELAY = 300;
 
@@ -26,10 +26,6 @@ export function useModalHandler({ onClose, isOpen }: { onClose?: () => void; isO
         [handleClose],
     );
 
-    const onContentClick = (e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => {
-        e.stopPropagation();
-    };
-
     useEffect(() => {
         if (isOpen) {
             setIsMounted(true);
@@ -48,7 +44,6 @@ export function useModalHandler({ onClose, isOpen }: { onClose?: () => void; isO
     return {
         isClosing,
         handleClose,
-        onContentClick,
         isMounted,
     };
 }

@@ -13,9 +13,7 @@ const meta: Meta<typeof LoginForm> = {
     },
     tags: ['autodocs'],
     argTypes: {},
-    args: {
-        placeholder: 'Введите данные',
-    },
+    args: {},
     decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 

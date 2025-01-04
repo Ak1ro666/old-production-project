@@ -8,7 +8,6 @@ export function Modal({
     isOpen,
     isClosing,
     handleClose,
-    onContentClick,
     lazy,
     isMounted,
 }: {
@@ -16,7 +15,6 @@ export function Modal({
     isOpen?: boolean;
     isClosing: boolean;
     handleClose: () => void;
-    onContentClick: (e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => void;
     lazy?: boolean;
     isMounted?: boolean;
 }) {
@@ -33,7 +31,12 @@ export function Modal({
                 })}
             >
                 <div onClick={handleClose} className={styles.overlay}>
-                    <div onClick={onContentClick} className={styles.content}>
+                    <div
+                        onClick={(e) => {
+                            e.stopPropagation();
+                        }}
+                        className={styles.content}
+                    >
                         {children}
                     </div>
                 </div>

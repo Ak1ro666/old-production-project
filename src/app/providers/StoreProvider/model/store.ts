@@ -4,6 +4,7 @@ import { StateSchema } from './StateSchema';
 import { counterReducer } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
 import { createReducerManager } from './createReducerManger';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 export function createReduxStore(
     initialState?: StateSchema,
@@ -29,4 +30,8 @@ export function createReduxStore(
     return store;
 }
 
-export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
+export type AppStore = ReturnType<typeof createReduxStore>;
+export type AppDispatch = AppStore['dispatch'];
+export type RootState = ReturnType<AppStore['getState']>;
+
+export const useAppSelector: TypedUseSelectorHook<StateSchema> = useSelector;
