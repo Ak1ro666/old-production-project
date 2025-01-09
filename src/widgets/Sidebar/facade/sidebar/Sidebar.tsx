@@ -7,27 +7,27 @@ import { LanguageSwitcher } from '@/widgets/LanguageSwitcher';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 
 export const Sidebar = memo(() => {
-  const { itemsList, collapsed, onToggleSidebar } = useSidebar();
+  const sidebar = useSidebar();
 
   return (
     <Layout
-      collapsed={collapsed}
-      itemsList={itemsList}
+      collapsed={sidebar.collapsed}
+      itemsList={sidebar.itemsList}
       actionToggle={
         <Button
           data-testid="sidebar-toggle"
           theme={ButtonTheme.BACKGROUND_INVERTED}
-          onClick={onToggleSidebar}
+          onClick={sidebar.onToggleSidebar}
           square
           size={ButtonSize.L}
         >
-          {collapsed ? '>' : '<'}
+          {sidebar.collapsed ? '>' : '<'}
         </Button>
       }
       actions={
         <>
           <ThemeSwitcher />
-          <LanguageSwitcher short={collapsed} />
+          <LanguageSwitcher short={sidebar.collapsed} />
         </>
       }
     />

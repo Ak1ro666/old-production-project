@@ -1,11 +1,11 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react';
 
 const ANIMATION_DELAY = 300;
 
 export function useModalHandler({ onClose, isOpen }: { onClose?: () => void; isOpen?: boolean }) {
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
-  const timeRef = useRef<ReturnType<typeof setTimeout>>(null);
+  const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
   const handleClose = useCallback(() => {
     if (onClose) {

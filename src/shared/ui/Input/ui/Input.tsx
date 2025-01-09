@@ -14,13 +14,22 @@ export const Input = memo((props: InputProps) => {
     placeholder,
     className,
     autoFocus,
+    disabled,
     ...otherProps
   } = props;
 
   const inputHandlers = useInputHandlers(onChange, autoFocus);
 
   return (
-    <div className={classNames(styles.inputWrapper, {}, [className])}>
+    <div
+      className={classNames(
+        styles.inputWrapper,
+        {
+          [styles.disabled]: disabled,
+        },
+        [className],
+      )}
+    >
       {placeholder && <div className={styles.placeholder}>{`${placeholder}>`}</div>}
       <div className={styles.caretWrapper}>
         <input
@@ -32,6 +41,7 @@ export const Input = memo((props: InputProps) => {
           onBlur={inputHandlers.onBlur}
           onFocus={inputHandlers.onFocus}
           onSelect={inputHandlers.onSelect}
+          disabled={disabled}
           {...otherProps}
         />
         {inputHandlers.isFocused && (

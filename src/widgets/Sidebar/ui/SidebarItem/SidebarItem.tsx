@@ -8,7 +8,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
 
 export const SidebarItem = memo(
-  ({ item, collapsed }: { item?: SidebarItemType; collapsed?: boolean }) => {
+  ({ item, collapsed }: { item: SidebarItemType; collapsed?: boolean }) => {
     const { t } = useTranslation();
 
     return (

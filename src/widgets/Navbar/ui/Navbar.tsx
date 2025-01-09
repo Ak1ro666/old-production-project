@@ -2,34 +2,19 @@ import { useTranslation } from 'react-i18next';
 
 import styles from './Navbar.module.scss';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { useCallback, useState, lazy, memo } from 'react';
+import { memo } from 'react';
 import { LoginModal } from '@/features/AuthByUsername';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from '@/entities/User';
+import { useNavbar } from '../model/use-navbar';
 
 export const Navbar = memo(() => {
   const { t } = useTranslation();
-  const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
-  const authData = useSelector(getUserAuthData);
-  const dispatch = useDispatch();
+  const navbar = useNavbar();
 
-  const handleCloseModal = useCallback(() => {
-    setIsAuthModal(false);
-  }, []);
-
-  const handleOpenModal = useCallback(() => {
-    setIsAuthModal(true);
-  }, []);
-
-  const onLogout = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
-
-  if (authData) {
+  if (navbar.authData) {
     return (
       <nav className={styles.Navbar}>
         <div className={styles.links} />
-        <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogout}>
+        <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={navbar.onLogout}>
           {t('Выход')}
         </Button>
       </nav>
@@ -39,10 +24,12 @@ export const Navbar = memo(() => {
   return (
     <nav className={styles.Navbar}>
       <div className={styles.links} />
-      <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={handleOpenModal}>
+      <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={navbar.handleOpenModal}>
         {t('Авторизация')}
       </Button>
-      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={handleCloseModal} />}
+      {navbar.isAuthModal && (
+        <LoginModal isOpen={navbar.isAuthModal} onClose={navbar.handleCloseModal} />
+      )}
     </nav>
   );
 });

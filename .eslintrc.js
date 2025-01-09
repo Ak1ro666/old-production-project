@@ -29,7 +29,7 @@ module.exports = {
     'react/jsx-indent': ['error', 2],
     'react/jsx-indent-props': ['error', 2],
     'linebreak-style': 'off',
-    'no-param-reassign': 'warn',
+    'no-param-reassign': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': 'off',
     'import/no-extraneous-dependencies': 'off',
@@ -54,6 +54,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'lines-between-class-members': 'off',
+    'no-undef': 'off',
   },
   overrides: [
     {
@@ -66,5 +67,6 @@ module.exports = {
   ],
   globals: {
     __IS_DEV__: true,
+    __API__: true,
   },
 };

@@ -1,8 +1,8 @@
 {
   "язык": "English",
   "Короткий язык": "En",
-  "о нас": "about us",
-  "главная": "main",
+  "О нас": "About us",
+  "Главная": "Main",
   "Страница не найдена": "Not found page",
   "Произошла непредвиденная ошибка": "An unexpected error has occurred",
   "Перезагрузить страницу": "Reload page",
@@ -12,5 +12,6 @@
   "Форма авторизации": "Authorization form",
   "Выход": "Logout",
   "Авторизация": "Authorization",
-  "Войти": "Log in"
+  "Войти": "Log in",
+  "Профиль": "Profile"
 }

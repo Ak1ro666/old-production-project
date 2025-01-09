@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './Button.module.scss';
-import { ButtonProps, ButtonTheme } from './Button.types';
+import { ButtonProps, ButtonSize, ButtonTheme } from './Button.types';
 import { memo } from 'react';
 
 export const Button = memo((props: ButtonProps) => {
@@ -10,7 +10,7 @@ export const Button = memo((props: ButtonProps) => {
     onClick,
     square,
     className,
-    size,
+    size = ButtonSize.M,
     type = 'button',
     disabled,
     ...otherProps

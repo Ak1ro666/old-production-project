@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ProfileSchema } from '../types/profile';
+import { Profile, ProfileSchema } from '../domain/types';
+import { fetchProfileData } from '../service/fetchProfileData';
 
 const initialState: ProfileSchema = {
   data: undefined,
@@ -16,7 +17,21 @@ export const profileSlice = createSlice({
       state.readonly = action.payload;
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchProfileData.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
+        state.isLoading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetchProfileData.rejected, (state, action: PayloadAction<string | undefined>) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
 });
 
-export const { actions: profileActions } = profileSlice;
-export const { reducer: profileReducer } = profileSlice;
+export const { actions: profileActions, reducer: profileReducer } = profileSlice;

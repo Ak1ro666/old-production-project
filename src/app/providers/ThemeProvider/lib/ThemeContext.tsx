@@ -5,16 +5,9 @@ export enum Theme {
   LIGHT = 'app_light_theme',
 }
 
-// export const NewTheme = {
-// DARK: 'dark',
-// LIGHT: 'light',
-// } as const;
-
-// export type ThemeType = (typeof NewTheme)[keyof typeof NewTheme];
-
 export interface ThemeContextProps {
-  theme?: Theme;
-  setTheme?: (theme: Theme) => void;
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
 }
 
-export const ThemeContext = createContext<ThemeContextProps>({});
+export const ThemeContext = createContext<ThemeContextProps | null>(null);

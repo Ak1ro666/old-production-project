@@ -37,6 +37,7 @@ export const LoginForm = memo(({ onSuccess }: { onSuccess?: () => void }) => {
           className={styles.input}
           onChange={loginForm.onChangePassword}
           value={loginForm.password}
+          type="password"
         />
         <Button
           onClick={loginForm.onLoginClick}

@@ -1,9 +1,8 @@
-import React, { FC, SVGProps } from 'react';
-
 import { ROUTE_PATHS } from '@/shared/config/routeConfig/routeConfig';
 
 import MainIcon from '@/shared/assets/main-icon.svg';
 import AboutIcon from '@/shared/assets/about-icon.svg';
+import ProfileIcon from '@/shared/assets/profile-icon.svg';
 
 export type SidebarItemType = {
   path: string;
@@ -14,17 +13,17 @@ export type SidebarItemType = {
 export const sidebarItemsList: SidebarItemType[] = [
   {
     path: ROUTE_PATHS.main,
-    text: 'главная',
+    text: 'Главная',
     Icon: MainIcon,
   },
   {
     path: ROUTE_PATHS.about,
-    text: 'о нас',
+    text: 'О нас',
     Icon: AboutIcon,
   },
   {
     path: ROUTE_PATHS.profile,
-    text: 'профиль',
-    Icon: MainIcon,
+    text: 'Профиль',
+    Icon: ProfileIcon,
   },
 ];

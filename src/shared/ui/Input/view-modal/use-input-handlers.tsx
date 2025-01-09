@@ -1,6 +1,6 @@
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 
-export function useInputHandlers(onChange: (value: string) => void, autoFocus: boolean) {
+export function useInputHandlers(onChange?: (value: string) => void, autoFocus?: boolean) {
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [caretPosition, setCaretPosition] = useState<number>(0);
   const inputRef = useRef<HTMLInputElement>(null);
