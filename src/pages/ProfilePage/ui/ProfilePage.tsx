@@ -1,26 +1,26 @@
 import { useEffect } from 'react';
 
-import { fetchProfileData, ProfileCard, profileReducer } from '@/entities/Profile';
 import {
-  DynamicModuleLoader,
-  ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+  fetchProfileData,
+  getProfileData,
+  getProfileError,
+  getProfileIsLoading,
+  getProfileReadonly,
+  ProfileCard,
+} from '@/entities/Profile';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-
-const reducers: ReducersList = {
-  profile: profileReducer,
-};
+import { useAppSelector } from '@/app/providers/StoreProvider/model/store';
 
 export function ProfilePage() {
   const dispatch = useAppDispatch();
+  const error = useAppSelector(getProfileError);
+  const isLoading = useAppSelector(getProfileIsLoading);
+  const data = useAppSelector(getProfileData);
+  const readonly = useAppSelector(getProfileReadonly);
 
   useEffect(() => {
     dispatch(fetchProfileData());
   }, [dispatch]);
 
-  return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <ProfileCard />
-    </DynamicModuleLoader>
-  );
+  return <ProfileCard data={data} error={error} isLoading={isLoading} readonly={readonly} />;
 }

@@ -9,8 +9,8 @@ import { NavigateFunction } from 'react-router-dom';
 export type StateSchema = {
   counter: CounterSchema;
   user: UserSchema;
-  loginForm?: LoginSchema;
-  profile?: ProfileSchema;
+  loginForm: LoginSchema;
+  profile: ProfileSchema;
 };
 
 export type StateSchemaKey = keyof StateSchema;

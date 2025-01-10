@@ -1,6 +1,5 @@
 import webpack, { RuleSetRule } from 'webpack';
 import { BuildPaths } from '../build/types/config';
-import path from 'path';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 
@@ -9,7 +8,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     build: '',
     entry: '',
     html: '',
-    src: path.resolve(__dirname, '..', '..', 'src'),
+    src: new URL('../../src', import.meta.url).pathname,
   };
 
   config.resolve?.modules?.push(paths.src);
@@ -31,7 +30,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config.plugins?.push(
     new webpack.DefinePlugin({
       __IS_DEV__: true,
-      __API__: ''
+      __API__: '',
     }),
   );
 

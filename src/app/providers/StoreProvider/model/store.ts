@@ -1,11 +1,12 @@
-import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { StateSchema } from './StateSchema';
 import { counterReducer } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
-import { createReducerManager } from './createReducerManger';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import { axiosClassic } from '@/shared/api/instance';
 import { NavigateFunction } from 'react-router-dom';
+import { loginReducer } from '@/features/AuthByUsername';
+import { profileReducer } from '@/entities/Profile';
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -16,12 +17,12 @@ export function createReduxStore(
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    loginForm: loginReducer,
+    profile: profileReducer,
   };
 
-  const reducerManager = createReducerManager(rootReducers);
-
   const store = configureStore({
-    reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
+    reducer: rootReducers,
     devTools: __IS_DEV__,
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) =>
@@ -36,7 +37,7 @@ export function createReduxStore(
   });
 
   // @ts-ignore
-  store.reducerManager = reducerManager;
+  // store.reducerManager = reducerManager;
 
   return store;
 }

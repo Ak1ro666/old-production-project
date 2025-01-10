@@ -4,6 +4,7 @@
     "indentation": [2],
     "selector-class-pattern": null,
     "color-function-notation": null,
-    "color-hex-length": null
+    "color-hex-length": null,
+    "string-quotes": null
   }
 }
