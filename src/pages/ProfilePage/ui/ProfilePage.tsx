@@ -3,7 +3,7 @@ import { ProfileCard } from '@/entities/Profile';
 import { useProfilePage } from '../model/use-profile-page';
 import { useProfilePageHandlers } from '../model/use-profile-page-handlers';
 
-function ProfilePage() {
+export function ProfilePage() {
   const profilePage = useProfilePage();
   const profilePatgeHandlers = useProfilePageHandlers();
 
@@ -28,5 +28,3 @@ function ProfilePage() {
     />
   );
 }
-
-export default ProfilePage;

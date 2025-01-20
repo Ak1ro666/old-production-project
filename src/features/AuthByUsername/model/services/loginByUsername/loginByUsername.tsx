@@ -3,15 +3,17 @@ import { User, userActions } from '@/entities/User';
 import { LOCAL_STORAGE_USER_KEY } from '@/shared/constants/localstorage';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const loginByUsername = createAsyncThunk<User, { username: string; password: string }, ThunkConfig<string>>(
-  'login/loginByUsername',
-  async (authData, thunkApi) => {
-    const { extra, rejectWithValue, dispatch } = thunkApi;
+export const loginByUsername = createAsyncThunk<
+  User,
+  { username: string; password: string },
+  ThunkConfig<string>
+>('login/loginByUsername', async (authData, thunkApi) => {
+  const { extra, rejectWithValue, dispatch } = thunkApi;
 
-    try {
-      const response = await extra.api.post<User>('/login', authData);
+  try {
+    const response = await extra.api.post<User>('/login', authData);
 
-      if (!response.data) {
+    if (!response.data) {
       throw new Error("User doesn't exist");
     }
 
