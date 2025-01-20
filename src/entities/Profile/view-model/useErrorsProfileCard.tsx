@@ -3,7 +3,7 @@ import { ValidateProfileError } from '../domain/types';
 import { Text, TextTheme } from '@/shared/ui/Text';
 
 export function useErrorProfileCard(errors?: ValidateProfileError[]) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
 
   const validateErrosTranslate: Record<ValidateProfileError, string> = {
     [ValidateProfileError.SERVER_ERROR]: 'Произошла ошибка',

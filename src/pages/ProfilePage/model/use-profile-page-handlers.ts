@@ -1,6 +1,6 @@
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import { profileActions, updateProfileDate } from '@/entities/Profile';
+import { profileActions, updateProfileData } from '@/entities/Profile';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 
 export function useProfilePageHandlers() {
@@ -52,7 +52,7 @@ export function useProfilePageHandlers() {
   };
 
   const onUpdate = () => {
-    dispatch(updateProfileDate());
+    dispatch(updateProfileData());
   };
 
   return {
