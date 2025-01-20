@@ -1,12 +1,12 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { StateSchema } from './StateSchema';
-import { counterReducer } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import { axiosClassic } from '@/shared/api/instance';
 import { NavigateFunction } from 'react-router-dom';
 import { loginReducer } from '@/features/AuthByUsername';
 import { profileReducer } from '@/entities/Profile';
+import { counterReducer } from '@/entities/Counter';
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -45,5 +45,3 @@ export function createReduxStore(
 export type AppStore = ReturnType<typeof createReduxStore>;
 export type AppDispatch = AppStore['dispatch'];
 export type RootState = ReturnType<AppStore['getState']>;
-
-export const useAppSelector: TypedUseSelectorHook<StateSchema> = useSelector;

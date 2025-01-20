@@ -1,2 +1,2 @@
 export { Text } from './ui/Text';
-export { TextTheme } from './ui/Text.props';
+export { TextTheme, TextAlign } from './ui/Text.props';

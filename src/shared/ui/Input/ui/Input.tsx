@@ -15,10 +15,11 @@ export const Input = memo((props: InputProps) => {
     className,
     autoFocus,
     disabled,
+    readOnly,
     ...otherProps
   } = props;
 
-  const inputHandlers = useInputHandlers(onChange, autoFocus);
+  const inputHandlers = useInputHandlers({ onChange, autoFocus, readOnly });
 
   return (
     <div
@@ -40,11 +41,12 @@ export const Input = memo((props: InputProps) => {
           type={type}
           onBlur={inputHandlers.onBlur}
           onFocus={inputHandlers.onFocus}
+          readOnly={readOnly}
           onSelect={inputHandlers.onSelect}
           disabled={disabled}
           {...otherProps}
         />
-        {inputHandlers.isFocused && (
+        {inputHandlers.isCaretVisible && (
           <span
             className={styles.caret}
             style={{

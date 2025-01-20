@@ -1,9 +1,9 @@
+import { memo } from 'react';
 import { Theme, useTheme } from '@/app/providers/ThemeProvider';
 
-import LightIcon from '@/shared/assets/theme-light.svg';
-import DarkIcon from '@/shared/assets/theme-dark.svg';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { memo } from 'react';
+import LightIcon from '@/shared/assets/component/theme-light.svg';
+import DarkIcon from '@/shared/assets/component/theme-dark.svg';
 
 export const ThemeSwitcher = memo(() => {
   const { theme, toggleTheme } = useTheme();

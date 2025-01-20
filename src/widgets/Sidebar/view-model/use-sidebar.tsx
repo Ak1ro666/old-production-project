@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { sidebarItemsList } from '../model/items';
 import { SidebarItem } from '../ui/SidebarItem/SidebarItem';
 
@@ -17,5 +17,5 @@ export function useSidebar() {
     collapsed,
     onToggleSidebar,
     itemsList,
-  };
+  } as const;
 }

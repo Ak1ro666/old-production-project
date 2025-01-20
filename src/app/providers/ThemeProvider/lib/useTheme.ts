@@ -1,6 +1,6 @@
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/constants/localstorage';
 import { Theme } from './ThemeContext';
-import { useThemeContext } from './useThemeContext';
+import { useThemeContext } from '../facade/useThemeContext';
 
 export function useTheme() {
   const context = useThemeContext();

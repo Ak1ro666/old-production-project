@@ -9,8 +9,9 @@ export enum InputTheme {
 }
 
 export interface InputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
-  value?: string;
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'readOnly'> {
+  value?: string | number;
   onChange?: (value: string) => void;
   theme?: InputTheme;
+  readOnly?: boolean;
 }

@@ -1,6 +1,14 @@
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 
-export function useInputHandlers(onChange?: (value: string) => void, autoFocus?: boolean) {
+export function useInputHandlers({
+  onChange,
+  autoFocus,
+  readOnly,
+}: {
+  onChange?: (value: string) => void;
+  autoFocus?: boolean;
+  readOnly?: boolean;
+}) {
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [caretPosition, setCaretPosition] = useState<number>(0);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -32,13 +40,15 @@ export function useInputHandlers(onChange?: (value: string) => void, autoFocus?:
     }
   }, [autoFocus]);
 
+  const isCaretVisible = isFocused && !readOnly;
+
   return {
     onChangeHandler,
     onBlur,
     onFocus,
     onSelect,
-    isFocused,
     caretPosition,
     inputRef,
-  };
+    isCaretVisible,
+  } as const;
 }

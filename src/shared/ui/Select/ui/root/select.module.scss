@@ -1,0 +1,12 @@
+.wrapperSelect {
+  display: flex;
+}
+
+.wrapperSelect.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.label {
+  margin-right: 5px;
+}

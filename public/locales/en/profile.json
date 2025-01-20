@@ -2,5 +2,13 @@
   "Профиль": "Profile",
   "Редактировать": "Edit",
   "Ваше имя": "Your name",
-  "Ваша фамилия": "Your lastname"
+  "Ваша фамилия": "Your lastname",
+  "Ваш возраст": "Your age",
+  "Ваш город": "Your city",
+  "Имя пользователя": "Your username",
+  "Аватар": "Avatar",
+  "Валюта": "Currency",
+  "Страна": "Country",
+  "Отменить": "Cancel",
+  "Сохранить": "Save"
 }

@@ -6,10 +6,17 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from '@/entities/User';
 
 export const SidebarItem = memo(
   ({ item, collapsed }: { item: SidebarItemType; collapsed?: boolean }) => {
     const { t } = useTranslation();
+    const isAuth = useSelector(getUserAuthData);
+
+    if (item.auth && !isAuth) {
+      return null;
+    }
 
     return (
       <li

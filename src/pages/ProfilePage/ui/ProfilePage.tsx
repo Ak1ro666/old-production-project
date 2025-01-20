@@ -1,26 +1,32 @@
-import { useEffect } from 'react';
+import { ProfileCard } from '@/entities/Profile';
 
-import {
-  fetchProfileData,
-  getProfileData,
-  getProfileError,
-  getProfileIsLoading,
-  getProfileReadonly,
-  ProfileCard,
-} from '@/entities/Profile';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { useAppSelector } from '@/app/providers/StoreProvider/model/store';
+import { useProfilePage } from '../model/use-profile-page';
+import { useProfilePageHandlers } from '../model/use-profile-page-handlers';
 
-export function ProfilePage() {
-  const dispatch = useAppDispatch();
-  const error = useAppSelector(getProfileError);
-  const isLoading = useAppSelector(getProfileIsLoading);
-  const data = useAppSelector(getProfileData);
-  const readonly = useAppSelector(getProfileReadonly);
+function ProfilePage() {
+  const profilePage = useProfilePage();
+  const profilePatgeHandlers = useProfilePageHandlers();
 
-  useEffect(() => {
-    dispatch(fetchProfileData());
-  }, [dispatch]);
-
-  return <ProfileCard data={data} error={error} isLoading={isLoading} readonly={readonly} />;
+  return (
+    <ProfileCard
+      data={profilePage.formData}
+      error={profilePage.error}
+      validateErros={profilePage.validateProfileErros}
+      isLoading={profilePage.isLoading}
+      readonly={profilePage.readonly}
+      onChangeFirstname={profilePatgeHandlers.onChangeFirstname}
+      onChangeLastname={profilePatgeHandlers.onChangeLastname}
+      onChangeAge={profilePatgeHandlers.onChangeAge}
+      onChangeCity={profilePatgeHandlers.onChangeCity}
+      onChangeUsername={profilePatgeHandlers.onChangeUsername}
+      onChangeAvatar={profilePatgeHandlers.onChangeAvatar}
+      onChangeCurrency={profilePatgeHandlers.onChangeCurrency}
+      onChangeCountry={profilePatgeHandlers.onChangeCountry}
+      onEdit={profilePatgeHandlers.onEdit}
+      onCancelEdit={profilePatgeHandlers.onCancelEdit}
+      onUpdate={profilePatgeHandlers.onUpdate}
+    />
+  );
 }
+
+export default ProfilePage;

@@ -44,7 +44,10 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'i18next/no-literal-string': [
       'error',
-      { markupOnly: true, ignoreAttribute: ['data-testid', 'to', 'nameReducer'] },
+      {
+        markupOnly: true,
+        ignoreAttribute: ['data-testid', 'to', 'nameReducer', 'alt', 'src'],
+      },
     ],
     'max-len': ['error', { ignoreComments: true, code: 120 }],
     'arrow-body-style': 'off',
@@ -55,6 +58,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'lines-between-class-members': 'off',
     'no-undef': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
   },
   overrides: [
     {

@@ -1,13 +1,14 @@
 import { ROUTE_PATHS } from '@/shared/config/routeConfig/routeConfig';
 
-import MainIcon from '@/shared/assets/main-icon.svg';
-import AboutIcon from '@/shared/assets/about-icon.svg';
-import ProfileIcon from '@/shared/assets/profile-icon.svg';
+import MainIcon from '@/shared/assets/component/main-icon.svg';
+import AboutIcon from '@/shared/assets/component/about-icon.svg';
+import ProfileIcon from '@/shared/assets/component/profile-icon.svg';
 
 export type SidebarItemType = {
   path: string;
   text: string;
   Icon: React.FC<React.SVGProps<SVGElement>>;
+  auth?: boolean;
 };
 
 export const sidebarItemsList: SidebarItemType[] = [
@@ -25,5 +26,6 @@ export const sidebarItemsList: SidebarItemType[] = [
     path: ROUTE_PATHS.profile,
     text: 'Профиль',
     Icon: ProfileIcon,
+    auth: true,
   },
 ];
