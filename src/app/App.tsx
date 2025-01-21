@@ -5,9 +5,11 @@ import { Navbar } from '../widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { Loader } from '@/shared/ui/Loader';
 import { useDispatch } from 'react-redux';
-import { userActions } from '@/entities/User';
+import { getUserInited, userActions } from '@/entities/User';
+import { useAppSelector } from '@/shared/hooks/useAppSelector';
 
 export const App = () => {
+  const inited = useAppSelector(getUserInited);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,7 +22,7 @@ export const App = () => {
         <Navbar />
         <main className="content-page">
           <Sidebar />
-          <AppRouter />
+          {inited && <AppRouter />}
         </main>
       </Suspense>
     </div>

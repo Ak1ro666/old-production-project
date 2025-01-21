@@ -3,6 +3,7 @@ import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import type { BuildOptions } from './types/config';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstance[] {
   const { isDev, paths, apiUrl, project } = options;
@@ -19,7 +20,7 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
       __API__: JSON.stringify(apiUrl),
       __PROJECT__: JSON.stringify(project),
     }),
-  ];
+  ].filter(Boolean);
 
   if (isDev) {
     plugins.push(new webpack.HotModuleReplacementPlugin());
@@ -28,6 +29,7 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
         openAnalyzer: false,
       }),
     );
+    plugins.push(new ReactRefreshWebpackPlugin());
   }
 
   return plugins;
