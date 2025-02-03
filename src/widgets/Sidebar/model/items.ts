@@ -28,4 +28,10 @@ export const sidebarItemsList: SidebarItemType[] = [
     Icon: ProfileIcon,
     auth: true,
   },
+  {
+    path: ROUTE_PATHS.articles,
+    text: 'Статьи',
+    Icon: ProfileIcon,
+    auth: true,
+  },
 ];

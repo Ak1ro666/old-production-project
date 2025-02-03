@@ -8,6 +8,7 @@ import { userReducer } from '@/entities/User';
 import { loginReducer } from '@/features/AuthByUsername';
 import { ReactRenderer } from '@storybook/react/*';
 import { counterReducer } from '@/entities/Counter';
+import { articleReducer } from '@/entities/Article';
 
 export const StoreDecorator =
   (state?: DeepPartial<StateSchema>) => (StoryComponent: PartialStoryFn<ReactRenderer>) => {
@@ -16,6 +17,7 @@ export const StoreDecorator =
       profile: profileReducer,
       user: userReducer,
       loginForm: loginReducer,
+      article: articleReducer,
     };
 
     const store = configureStore({

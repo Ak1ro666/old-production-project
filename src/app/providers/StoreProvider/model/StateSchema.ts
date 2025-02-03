@@ -1,3 +1,4 @@
+import { ArticleSchema } from '@/entities/Article';
 import { CounterSchema } from '@/entities/Counter';
 import { ProfileSchema } from '@/entities/Profile';
 import { UserSchema } from '@/entities/User';
@@ -11,6 +12,7 @@ export type StateSchema = {
   user: UserSchema;
   loginForm: LoginSchema;
   profile: ProfileSchema;
+  article: ArticleSchema;
 };
 
 export type StateSchemaKey = keyof StateSchema;

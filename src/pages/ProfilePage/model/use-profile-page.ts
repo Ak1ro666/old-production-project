@@ -6,7 +6,6 @@ import {
   getProfileError,
   getProfileIsLoading,
   getProfileReadonly,
-  getProfileFormData,
   getProfileValidateErrors,
 } from '@/entities/Profile';
 
@@ -18,7 +17,6 @@ export function useProfilePage() {
 
   const error = useAppSelector(getProfileError);
   const isLoading = useAppSelector(getProfileIsLoading);
-  const formData = useAppSelector(getProfileFormData);
   const data = useAppSelector(getProfileData);
   const readonly = useAppSelector(getProfileReadonly);
   const validateProfileErros = useAppSelector(getProfileValidateErrors);
@@ -31,7 +29,6 @@ export function useProfilePage() {
 
   return {
     data,
-    formData,
     error,
     isLoading,
     readonly,

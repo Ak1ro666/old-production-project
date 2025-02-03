@@ -59,6 +59,8 @@ module.exports = {
     'lines-between-class-members': 'off',
     'no-undef': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
+    'react/destructuring-assignment': 'off',
+    'no-redeclare': 'off',
   },
   overrides: [
     {

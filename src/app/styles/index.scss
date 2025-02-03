@@ -1,8 +1,8 @@
-@import "./reset";
-@import "./variables/global";
-@import "./theme/dark";
-@import "./theme/normal";
-@import "./theme/orange";
+@import './reset';
+@import './variables/global';
+@import './theme/dark';
+@import './theme/normal';
+@import './theme/orange';
 
 body {
   font: var(--font-m);
@@ -20,5 +20,8 @@ body {
 
 .page-wrapper {
   flex-grow: 1;
+  width: 100%;
   padding: 20px;
+  height: calc(100vh - var(--navbar-height));
+  overflow-y: auto;
 }

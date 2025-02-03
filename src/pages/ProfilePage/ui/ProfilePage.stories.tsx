@@ -17,15 +17,6 @@ const meta: Meta<typeof ProfilePage> = {
   decorators: [
     StoreDecorator({
       profile: {
-        formData: {
-          username: 'admin',
-          age: 22,
-          city: 'Moscow',
-          country: Country.Armenia,
-          currency: Currency.USD,
-          first: 'Ivan',
-          lastname: 'Ivanov',
-        },
         data: {
           username: 'admin',
           age: 22,

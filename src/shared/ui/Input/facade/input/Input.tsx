@@ -3,7 +3,8 @@ import { memo } from 'react';
 import styles from './Input.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { InputProps, InputTheme } from './Input.types';
-import { useInputHandlers } from '../view-modal/use-input-handlers';
+import { useInputHandlers } from '../../view-modal/use-input-handlers';
+import { Root } from '../../ui/root';
 
 export const Input = memo((props: InputProps) => {
   const {
@@ -22,17 +23,8 @@ export const Input = memo((props: InputProps) => {
   const inputHandlers = useInputHandlers({ onChange, autoFocus, readOnly });
 
   return (
-    <div
-      className={classNames(
-        styles.inputWrapper,
-        {
-          [styles.disabled]: disabled,
-        },
-        [className],
-      )}
-    >
-      {placeholder && <div className={styles.placeholder}>{`${placeholder}>`}</div>}
-      <div className={styles.caretWrapper}>
+    <Root
+      input={
         <input
           ref={inputHandlers.inputRef}
           className={classNames(styles.input, {}, [styles[theme]])}
@@ -46,15 +38,12 @@ export const Input = memo((props: InputProps) => {
           disabled={disabled}
           {...otherProps}
         />
-        {inputHandlers.isCaretVisible && (
-          <span
-            className={styles.caret}
-            style={{
-              left: inputHandlers.caretPosition * 8.8,
-            }}
-          />
-        )}
-      </div>
-    </div>
+      }
+      placeholder={placeholder}
+      caretPosition={inputHandlers.caretPosition}
+      isCaretVisible={inputHandlers.isCaretVisible}
+      className={className}
+      disabled={disabled}
+    />
   );
 });

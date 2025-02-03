@@ -8,11 +8,12 @@ type AvatarProps = {
   className?: string;
   src?: string;
   alt?: string;
-  size?: number;
+  size?: number | string;
+  lazy?: boolean;
 };
 
 export function Avatar(props: AvatarProps) {
-  const { className, src, alt, size = 100 } = props;
+  const { className, src, alt, lazy, size = 100 } = props;
 
   const cssStyles = useMemo<CSSProperties>(
     () => ({
@@ -27,6 +28,7 @@ export function Avatar(props: AvatarProps) {
       style={cssStyles}
       className={classNames(styles.Avatar, {}, [className])}
       src={src}
+      loading={lazy ? 'lazy' : 'eager'}
       alt={alt}
     />
   );

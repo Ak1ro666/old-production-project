@@ -17,9 +17,9 @@ const data: Profile = {
 
 describe('updateProfileData', () => {
   test('should work update profile', async () => {
-    const thunk = new TestAsyncThunk(updateProfileData, { profile: { formData: data } });
+    const thunk = new TestAsyncThunk(updateProfileData);
     thunk.api.put.mockResolvedValue({ data });
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk(data);
 
     expect(thunk.api.put).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
@@ -27,9 +27,9 @@ describe('updateProfileData', () => {
   });
 
   test('failed update profile', async () => {
-    const thunk = new TestAsyncThunk(updateProfileData, { profile: { formData: data } });
+    const thunk = new TestAsyncThunk(updateProfileData);
     thunk.api.put.mockRejectedValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk({});
 
     expect(thunk.api.put).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');

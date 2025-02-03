@@ -18,8 +18,8 @@ export const Sidebar = memo(() => {
           data-testid="sidebar-toggle"
           theme={ButtonTheme.BACKGROUND_INVERTED}
           onClick={sidebar.onToggleSidebar}
-          square
           size={ButtonSize.L}
+          square
         >
           {sidebar.collapsed ? '>' : '<'}
         </Button>

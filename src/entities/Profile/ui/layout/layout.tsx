@@ -5,7 +5,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './layout.module.scss';
 
 export function Layout({
-  inputs,
+  form,
   editActions,
   title,
   avatar,
@@ -13,7 +13,7 @@ export function Layout({
   isLoading,
   validateErrors,
 }: {
-  inputs: React.ReactNode;
+  form: React.ReactNode;
   editActions: React.ReactNode;
   title: React.ReactNode;
   avatar?: React.ReactNode;
@@ -40,7 +40,7 @@ export function Layout({
         {editActions}
       </div>
       <div className={styles.avatarWrapper}>{avatar}</div>
-      <div className={styles.data}>{inputs}</div>
+      <div className={styles.data}>{form}</div>
       <div className={styles.errors}>{validateErrors}</div>
     </div>
   );

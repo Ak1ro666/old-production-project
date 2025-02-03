@@ -1,12 +1,12 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { StateSchema } from './StateSchema';
 import { userReducer } from '@/entities/User';
-import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import { axiosClassic } from '@/shared/api/instance';
 import { NavigateFunction } from 'react-router-dom';
 import { loginReducer } from '@/features/AuthByUsername';
 import { profileReducer } from '@/entities/Profile';
 import { counterReducer } from '@/entities/Counter';
+import { articleReducer } from '@/entities/Article';
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -19,6 +19,7 @@ export function createReduxStore(
     user: userReducer,
     loginForm: loginReducer,
     profile: profileReducer,
+    article: articleReducer,
   };
 
   const store = configureStore({
@@ -35,9 +36,6 @@ export function createReduxStore(
         },
       }),
   });
-
-  // @ts-ignore
-  // store.reducerManager = reducerManager;
 
   return store;
 }

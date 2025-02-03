@@ -42,4 +42,5 @@
   position: absolute;
   bottom: 32px;
   right: -32px;
+  z-index: var(--z-index-overlay);
 }

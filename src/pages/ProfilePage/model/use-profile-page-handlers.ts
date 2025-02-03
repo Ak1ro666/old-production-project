@@ -1,17 +1,11 @@
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
-import { profileActions, updateProfileData } from '@/entities/Profile';
+import { Profile, profileActions, updateProfileData } from '@/entities/Profile';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 
 export function useProfilePageHandlers() {
   const dispatch = useAppDispatch();
 
-  const onChangeFirstname = (value: string) => {
-    dispatch(profileActions.updateProfile({ first: value }));
-  };
-
-  const onChangeLastname = (value: string) => {
-    dispatch(profileActions.updateProfile({ lastname: value }));
+  const onSubmitForm = (data: Profile) => {
+    dispatch(updateProfileData(data));
   };
 
   const onEdit = () => {
@@ -23,49 +17,9 @@ export function useProfilePageHandlers() {
     dispatch(profileActions.resetFormData());
   };
 
-  const onChangeAge = (value: string) => {
-    if (value.match(/[^0-9]/g)) {
-      return;
-    }
-
-    dispatch(profileActions.updateProfile({ age: Number(value) }));
-  };
-
-  const onChangeCity = (value: string) => {
-    dispatch(profileActions.updateProfile({ city: value }));
-  };
-
-  const onChangeUsername = (value: string) => {
-    dispatch(profileActions.updateProfile({ username: value }));
-  };
-
-  const onChangeAvatar = (value: string) => {
-    dispatch(profileActions.updateProfile({ avatar: value }));
-  };
-
-  const onChangeCurrency = (value: Currency) => {
-    dispatch(profileActions.updateProfile({ currency: value }));
-  };
-
-  const onChangeCountry = (value: Country) => {
-    dispatch(profileActions.updateProfile({ country: value }));
-  };
-
-  const onUpdate = () => {
-    dispatch(updateProfileData());
-  };
-
   return {
-    onChangeFirstname,
-    onChangeLastname,
     onEdit,
     onCancelEdit,
-    onUpdate,
-    onChangeAge,
-    onChangeCity,
-    onChangeUsername,
-    onChangeAvatar,
-    onChangeCurrency,
-    onChangeCountry,
+    onSubmitForm,
   } as const;
 }
